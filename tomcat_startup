@@ -11,6 +11,7 @@
 RETVAL=$
 ## Provide the catalina home as per your installation.
 CATALINA_HOME="/apps/zeomega/apache-tomcat-7.0.42"
+SERVICEOWNER="zope"
 
 case "$1" in
 
@@ -18,7 +19,7 @@ case "$1" in
         if [ -f $CATALINA_HOME/bin/startup.sh ];
           then
           echo $"Starting Tomcat"
-          /bin/su tomcat $CATALINA_HOME/bin/startup.sh
+          /bin/su $SERVICEOWNER $CATALINA_HOME/bin/startup.sh
         fi
         ;;
 
@@ -26,7 +27,7 @@ case "$1" in
         if [ -f $CATALINA_HOME/bin/shutdown.sh ];
           then
           echo $"Stopping Tomcat"
-          /bin/su tomcat $CATALINA_HOME/bin/shutdown.sh
+          /bin/su $SERVICEOWNER $CATALINA_HOME/bin/shutdown.sh
         fi
         ;;
 
@@ -34,13 +35,13 @@ case "$1" in
         if [ -f $CATALINA_HOME/bin/startup.sh ];
           then
           echo $"Stopping Tomcat"
-          /bin/su tomcat $CATALINA_HOME/bin/shutdown.sh
+          /bin/su $SERVICEOWNER $CATALINA_HOME/bin/shutdown.sh
         fi
         
         if [ -f $CATALINA_HOME/bin/shutdown.sh ];
           then
           echo $"Stopping Tomcat"
-          /bin/su tomcat $CATALINA_HOME/bin/shutdown.sh
+          /bin/su $SERVICEOWNER $CATALINA_HOME/bin/shutdown.sh
         fi
         ;;
 
