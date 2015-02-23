@@ -2,7 +2,7 @@
 #
 # tomcat
 #
-# chkconfig: 
+# chkconfig:  2345 77 10
 # description: Start up the Tomcat servlet engine.
 
 # Source function library.
